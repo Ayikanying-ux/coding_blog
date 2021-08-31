@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+{% block title %}Search Results for Blog{% endblock %}
+{% block body %}
+
+    <section class="blog_area section-padding">
+
+        <div class="container">
+                <h2>Search results : </h2>
+                {% if allPosts|length < 1 %}
+                <p>No search results</p>
+                Your search query : <b>{{query}}</b> did not match any documents. <br>
+                Suggestions:
+                <ul>
+                <li>Make sure that all words are spelled correctly.</li>
+                <li>Try more general keywords.</li>
+                <li> Try fewer keywords.</li>
+                <li> Try different keywords.</li>
+                </li>
+                </ul>
+         </div>
+</section>
+
+    {% endif %}
+    <!--================Blog Area =================-->
+    <section class="blog_area section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mb-5 mb-lg-0">
+                    <div class="blog_left_sidebar">
+
+
+                        {% for post in allPosts %}
+                        <article class="blog_item">
+                            <div class="blog_item_img">
+                                <img class="card-img rounded-0" src="/media/{{post.image}}" alt="">
+
+                            </div>
+
+                            <div class="blog_details">
+                                <p style="color: rgb(18, 22, 233);">{{post.timeStamp}}</p>
+                                <a class="d-inline-block" href="/blogpost/{{post.slug}}">
+                                    <h2>{{post.name}}</h2>
+                                </a>
+                                <p>{{post.sub_head}}}}</p>
+                                <ul class="blog-info-link">
+                                    <li><i class="fa fa-eye"></i>{{post.total_views}}Views</li>
+                                    <li><i class="fa fa-heart"></i> {{post.like_count}}</li>
+                                </ul>
+                        </article>
+                        {% endfor %}
+
+
+
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <!--================Blog Area =================-->
+
+
+{% endblock %}

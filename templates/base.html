@@ -1,0 +1,223 @@
+<!doctype html>
+<html class="no-js" lang="zxx">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>{% block title %}{% endblock %}</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<link rel="shortcut icon" type="image/x-icon" href="/static/assets/img/python.ico">
+
+		<!-- CSS here -->
+            <link rel="stylesheet" href="/static/assets/css/bootstrap.min.css">
+            <link rel="stylesheet" href="/static/assets/css/owl.carousel.min.css">
+            <link rel="stylesheet" href="/static/assets/css/flaticon.css">
+            <link rel="stylesheet" href="/static/assets/css/slicknav.css">
+            <link rel="stylesheet" href="/static/assets/css/animate.min.css">
+            <link rel="stylesheet" href="/static/assets/css/magnific-popup.css">
+            <link rel="stylesheet" href="/static/assets/css/fontawesome-all.min.css">
+            <link rel="stylesheet" href="/static/assets/css/themify-icons.css">
+            <link rel="stylesheet" href="/static/assets/css/slick.css">
+            <link rel="stylesheet" href="/static/assets/css/nice-select.css">
+            <link rel="stylesheet" href="/static/assets/css/style.css">
+
+            <script src="https://cdn.lordicon.com/libs/frhvbuzj/lord-icon-2.0.2.js"></script>
+
+
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/highlight.min.js" integrity="sha512-MinqHeqca99q5bWxFNQEQpplMBFiUNrEwuuDj2rCSh1DgeeTXUgvgYIHZ1puBS9IKBkdfLMSk/ZWVDasa3Y/2A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+            <script>hljs.initHighlightingOnLoad();</script>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/styles/base16/equilibrium-dark.min.css" integrity="sha512-sfoz/SYqXA4cZXAboSvEJ1Ly8rV8Es+sdhlg3K0V4ydN8OMs2pTkP8VkdqjDKpYLdhS3vSu1kEwotc+GnHOZYQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+            {% block css %}{% endblock %}
+            <style>
+                .main-header .main-menu ul li a {
+                    color: #ffffff;
+                    padding: 25px 19px;
+                }
+                .header-area .main-header .header-sticky{
+                    background-color: rgb(2, 2, 27);
+                    padding: 2px 20px;
+                }
+                .slicknav_btn .slicknav_icon-bar + .slicknav_icon-bar {
+                    margin-top: 0.188em;
+                }
+                .header-area .slicknav_btn {
+                    top: -39px;
+                }
+
+            </style>
+
+
+            <script data-ad-client="ca-pub-1435679609901572" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+   </head>
+
+   <body>
+
+
+
+
+    <header>
+        <!-- Header Start -->
+       <div class="header-area">
+            <div class="main-header ">
+                <div class="header-top top-bg d-none d-lg-block">
+                   <div class="container-fluid">
+                       <div class="col-xl-12">
+                            <div class="row d-flex justify-content-between align-items-center">
+                                <div class="header-info-left">
+                                    <ul>
+                                       <!-- <li><i class="fas fa-map-marker-alt"></i></li>
+                                        <li><i class="fas fa-envelope"></i></li>-->
+                                    </ul>
+                                </div>
+                                <div class="header-info-right">
+                                    <ul class="header-social">
+                                        <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+                                        <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                                        <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                                       <li> <a href="#"><i class="fab fa-google-plus-g"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                       </div>
+                   </div>
+                </div>
+               <div class="header-bottom  header-sticky">
+                    <div class="container-fluid">
+                        <div class="row align-items-center">
+                            <div style="display:flex;">
+                            <!-- Logo -->
+                            <div class="col-xl-2 col-lg-1 col-md-1" style="padding-left: 0px;">
+                                <div class="logo" style="position: relative; top: 1px;">
+                                  <a href="/"><img src="/static/assets/img/logo/main/Kalu.png" alt="" style="width: 48px;"></a>
+                                </div>
+                            </div>
+
+                            <div class="col-xl-4 col-lg-4 col-md-4" style="padding-left: 40px;">
+                                <div class="logo" style="position: relative; top: 1px;">
+                                  <a href="/codebook"><lord-icon
+                                        src="https://cdn.lordicon.com/wxnxiano.json"
+                                        trigger="click"
+                                        colors="primary:#30c9e8,secondary:#ffffff"
+                                        stroke="80"
+                                        style="width:50px;height:50px">
+                                  </lord-icon></a>
+                                </div>
+                            </div>
+                            </div>
+
+                            <div class="col-xl-8 col-lg-8 col-md-8">
+                                <!-- Main-menu -->
+                                <div class="main-menu f-right d-none d-lg-block">
+                                    <nav>
+                                        <ul id="navigation">
+                                            <li><a href="/">Home</a></li>
+                                            <li><a href="/projects">Projects</a></li>
+                                            <li><a href="#">Learn</a>
+                                                <ul class="submenu">
+                                                    <li><a href="/python">Python</a></li>
+                                                </ul>
+                                            </li>
+                                            <li><a href="/bloghome/?page=1">Blog</a></li>
+
+                                            <li><a href="/contact">Contact Us</a></li>
+                                        </ul>
+                                    </nav>
+                                </div>
+                            </div>
+                            {% if not user.is_authenticated %}
+                            <div class="col-xl-2 col-lg-3 col-md-3">
+                                <div class="header-right-btn f-right d-none d-lg-block">
+                                    <a href="#" class="btn header-btn">Subscribe</a>
+                                </div>
+                            </div>
+                            {% endif %}
+                            <!-- Mobile Menu -->
+                            <div class="col-12">
+                                <div class="mobile_menu d-block d-lg-none"></div>
+                            </div>
+                        </div>
+                    </div>
+               </div>
+            </div>
+       </div>
+        <!-- Header End -->
+    </header>
+
+    {% for message in messages  %}
+    <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+          <strong>Message : </strong> {{ message }}
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+    {% endfor %}
+
+{% block body %}
+{% endblock %}
+
+<footer>
+
+
+    <!-- footer-bottom aera -->
+    <div class="footer-bottom-area footer-bg">
+        <div class="container">
+            <div class="footer-border">
+                 <div class="row d-flex align-items-center">
+                     <div class="col-xl-12 ">
+                         <div class="footer-copy-right text-center">
+                             <p>Copyright &copy;2020-2021 kaluramkharra.pythonanywhere.com</p>
+                         </div>
+                     </div>
+                 </div>
+            </div>
+        </div>
+    </div>
+    <!-- Footer End-->
+</footer>
+
+
+
+    	<!-- JS here -->
+
+		<!-- All JS Custom Plugins Link Here here -->
+        <script src="/static/assets/js/vendor/modernizr-3.5.0.min.js"></script>
+		<!-- Jquery, Popper, Bootstrap -->
+		<script src="/static/assets/js/vendor/jquery-1.12.4.min.js"></script>
+        <script src="/static/assets/js/popper.min.js"></script>
+        <script src="/static/assets/js/bootstrap.min.js"></script>
+	    <!-- Jquery Mobile Menu -->
+        <script src="/static/assets/js/jquery.slicknav.min.js"></script>
+
+		<!-- Jquery Slick , Owl-Carousel Plugins -->
+        <script src="/static/assets/js/owl.carousel.min.js"></script>
+        <script src="/static/assets/js/slick.min.js"></script>
+        <!-- Date Picker -->
+        <script src="/static/assets/js/gijgo.min.js"></script>
+		<!-- One Page, Animated-HeadLin -->
+        <script src="/static/assets/js/wow.min.js"></script>
+		<script src="/static/assets/js/animated.headline.js"></script>
+        <script src="/static/assets/js/jquery.magnific-popup.js"></script>
+
+		<!-- Scrollup, nice-select, sticky -->
+        <script src="/static/assets/js/jquery.scrollUp.min.js"></script>
+        <script src="/static/assets/js/jquery.nice-select.min.js"></script>
+		<script src="/static/assets/js/jquery.sticky.js"></script>
+
+        <!-- contact js -->
+        <script src="/static/assets/js/contact.js"></script>
+        <script src="/static/assets/js/jquery.form.js"></script>
+        <script src="/static/assets/js/jquery.validate.min.js"></script>
+        <script src="/static/assets/js/mail-script.js"></script>
+        <script src="/static/assets/js/jquery.ajaxchimp.min.js"></script>
+
+		<!-- Jquery Plugins, main Jquery -->
+        <script src="/static/assets/js/plugins.js"></script>
+        <script src="/static/assets/js/main.js"></script>
+
+        {% block js %}{% endblock %}
+
+    </body>
+</html>

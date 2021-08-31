@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% load humanize %}
+{% block title %}Python{% endblock %}
+{% block body %}
+
+    <!-- slider Area Start-->
+    <div class="slider-area ">
+        <!-- Mobile Menu -->
+        <div class="single-slider slider-height2 d-flex align-items-center" data-background="/static/assets/img/hero/python.png">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="hero-cap text-center">
+                            <h2>Python</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- slider Area End-->
+
+
+<div class="col-md-4 mt-sm-30"  style=" margin-right:auto;
+margin-left:auto; margin-top: 15px; margin-bottom: 15px;">
+<div class="list-group">
+    {% for post in allposts %}
+    <a href="{{post.slug}}" class="list-group-item list-group-item-action" aria-current="true">
+      <div class="d-flex w-100 justify-content-between">
+        <h5 style="color: rgb(27, 4, 133);" class="mb-1">{{post.name}}</h5>
+
+      </div>
+      <small style="color: rgb(255, 11, 11);">{{post.timeStamp| naturaltime}}</small>
+    </a>
+    {% endfor %}
+  </div>
+</div>
+
+
+{% endblock %}

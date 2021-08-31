@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+{% block title %}Project{% endblock %}
+{% block body %}
+
+
+
+  <!--================Blog Area =================-->
+  <section class="blog_area single-post-area">
+     <div class="container">
+        <div class="row">
+           <div class="col-lg-8 posts-list" style=" margin-right:auto;
+           margin-left:auto;">
+              <div class="single-post">
+                 <div class="feature-img" style="text-align: center;">
+                    <img class="img-fluid" src="/media/{{project.image}}" alt="">
+                 </div>
+                 <div class="blog_details">
+                    <h2>{{project.name}}
+                    </h2>
+                    <ul class="blog-info-link mt-3 mb-4">
+                     <li><i class="fa fa-eye"></i>{{project.total_views}}Views</li>
+                     <li><i class="fa fa-heart"></i> </span><span class="" id="like_count">{{project.like_count}}  </span></li>
+                     {% if request.user.is_authenticated %}
+                       {% csrf_token %}
+                       <div class="pr-2">
+
+                       <button style="padding-left: 0px; padding-right: 0px;" class="genric-btn default small" id="like-button" value="{{project.sno}}">LIKE
+                           <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-heart fa fa-heart-o" fill="blue"
+                           xmlns="http://www.w3.org/2000/svg">
+                           <path fill-rule="evenodd"
+                               d="M8 2.748l-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z" />
+                           </svg>
+                       </button>
+                       </div>
+                       {% endif %}
+                    </ul>
+                    {{project.content|safe}}
+                 </div>
+              </div>
+           </div>
+        </div>
+     </div>
+  </section>
+
+  {% endblock %}
+
+
+  {% block js %}
+
+  <script>
+   $(document).on('click', '#like-button', function (e) {
+     e.preventDefault();
+     $.ajax({
+       type: 'POST',
+       url: '/likeproject/',
+       data: {
+         postid: $('#like-button').val(),
+         csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val(),
+         action: 'post'
+       },
+       success: function (json) {
+         document.getElementById("like_count").innerHTML = json['result']
+       },
+       error: function (xhr, errmsg, err) {
+
+       }
+     });
+   })
+    </script>
+  {% endblock %}

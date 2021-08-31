@@ -1,0 +1,145 @@
+{% extends "base.html" %}
+{% load socialaccount %}
+{% block title %}Blog Post{% endblock %}
+
+{% providers_media_js %}
+{% load social_share %}
+
+{% load humanize %}
+{% block css %}
+<link rel="stylesheet" href="/static/assets/css/custom.css">
+{% endblock %}
+
+{% block body %}
+
+
+  <!--================Blog Area =================-->
+  <section class="blog_area single-post-area section-padding" style="padding-top: 1px;">
+     <div class="container">
+        <div class="row">
+           <div class="col-lg-8 posts-list"  style=" margin-right:auto;
+           margin-left:auto;">
+              <div class="single-post">
+                 <div class="feature-img">
+                    <img class="img-fluid" src="/media/{{post.image}}" alt="">
+                 </div>
+                 <div class="blog_details">
+                    <h2>{{post.sub_head}}
+                    <ul class="blog-info-link mt-3 mb-4">
+                       <li><i class="fa fa-eye"></i>{{post.total_views}}</li>
+                       <li><i class="fa fa-comments"></i>{{comments.count}}Comments</li>
+                        <li><i class="fa fa-heart"></i> <span class="" id="like_count">{{project.like_count}}  </span></li>
+                        {% if request.user.is_authenticated %}
+                           {% csrf_token %}
+                           <div class="pr-2">
+
+                           <button style="padding-left: 0px; padding-right: 0px;" class="genric-btn default small" id="like-button" value="{{post.sno}}">LIKE
+
+                           </button>
+                           </div>
+                        {% endif %}
+                    </ul>
+                    {{post.content|safe}}
+                 </div>
+              </div>
+
+              <div class="blog-author">
+                 <div class="media align-items-center">
+                     <img src="/static/assets/img/logo/main/Kalu.png" alt="" style="width: 44px;">
+
+                    <div class="media-body">
+
+                          <h4>Kaluram Kharra</h4>
+
+                       <p>Please comment </p>
+                    </div>
+                 </div>
+              </div>
+
+              <div class="comments-area">
+                 {% if user.is_authenticated %}
+               <form class="form-contact comment_form" action="/postComment/" method="POST" id="commentForm">
+                  {% csrf_token %}
+                  <div class="row">
+                     <div class="col-12">
+                        <div class="d-flex flex-row comment-row">
+                           <div class="p-2"><span class="round"><img src="{{ user.socialaccount_set.all.0.get_avatar_url }}" alt="user" width="50"></span>
+                           </div>
+                           <h5 style="margin-top: 15px;">{{ user.socialaccount_set.all.0.extra_data.name }}</h5>
+                        </div>
+                        <div class="form-group" style="margin-bottom:6px ;">
+                           <textarea class="form-control w-100" name="comment" id="comment" cols="30" rows="2"
+                              placeholder="Write Comment"></textarea>
+                        </div>
+                        <input type="hidden" name="postSno" value="{{post.sno}}">
+                        <input type="hidden" name="parentSno" value="">
+                     </div>
+                  </div>
+                     <button type="submit" class="genric-btn success" style="text-align: right;">Send Message</button>
+
+               </form>
+               {% else %}
+               <div class="hero__btn" data-animation="fadeInLeft" data-delay=".8s">
+               <a href="{% provider_login_url "google" %}" class="btn hero-btn">Subscribe</a>
+               </div>
+               {% endif%}
+
+
+
+               <div class="container d-flex justify-content-center mt-100 mb-100">
+                  <div class="row">
+                      <div class="col-md-12">
+                          <div class="card">
+                              <div class="card-body">
+                                  <h4 class="card-title">Recent Comments</h4>
+                              </div>
+                              <div class="comment-widgets m-b-20">
+                                  {% for comment in comments %}
+                                  <div class="d-flex flex-row comment-row">
+                                      <div class="p-2"><span class="round"><img src="{{ comment.user.socialaccount_set.all.0.get_avatar_url }}" alt="user" width="50"></span></div>
+                                      <div class="comment-text w-100">
+                                          <h5 style="margin-top: 15px;">{{ comment.user.socialaccount_set.all.0.extra_data.name }}</h5>
+                                          <div class="comment-footer" > <span class="date">{{comment.timestamp| naturaltime}}</span> </div>
+                                          <p class="m-b-5 m-t-10">{{comment.comment}}</p>
+                                      </div>
+                                  </div>
+                                  {% endfor %}
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              </div>
+           </div>
+        </div>
+     </div>
+  </section>
+
+  {% endblock %}
+
+
+  {% block js %}
+<script>
+
+
+$(document).on('click', '#like-button', function (e) {
+  e.preventDefault();
+  $.ajax({
+    type: 'POST',
+    url: '/likepost/',
+    data: {
+      postid: $('#like-button').val(),
+      csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val(),
+      action: 'post'
+    },
+    success: function (json) {
+      document.getElementById("like_count").innerHTML = json['result']
+    },
+    error: function (xhr, errmsg, err) {
+
+    }
+  });
+})
+
+ </script>
+ {% endblock %}

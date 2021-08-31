@@ -1,0 +1,147 @@
+	/*
+  	Flaticon icon font: Flaticon
+  	Creation date: 02/02/2020 11:30
+  	*/
+
+@font-face {
+  font-family: "Flaticon";
+  src: url("../fonts/fonts/Flaticon.eot");
+  src: url("../fonts/Flaticon.eot?#iefix") format("embedded-opentype"),
+       url("../fonts/Flaticon.woff2") format("woff2"),
+       url("../fonts/Flaticon.woff") format("woff"),
+       url("../fonts/Flaticon.ttf") format("truetype"),
+       url("../fonts/Flaticon.svg#Flaticon") format("svg");
+
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  @font-face {
+    font-family: "Flaticon";
+    src: url("../fonts/Flaticon.svg#Flaticon") format("svg");
+  }
+}
+
+[class^="flaticon-"]:before, [class*=" flaticon-"]:before,
+[class^="flaticon-"]:after, [class*=" flaticon-"]:after {   
+  font-family: Flaticon;
+
+}
+
+.flaticon-checklist:before { content: "\f100"; }
+.flaticon-audit:before { content: "\f101"; }
+.flaticon-checklist-1:before { content: "\f102"; }
+
+
+
+
+
+.carets {
+  height: 17px;
+  width: 17px;
+  border-radius: 50%;
+  background: #9b9b9b;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  font-size: 12px;
+  margin-top: 2px
+}
+
+.fs-14 {
+  font-size: 14px
+}
+
+.form-control {
+  width: 100%;
+  height: 140px;
+  resize: none;
+  border: 2px solid #eee
+}
+
+.form-control:focus {
+  box-shadow: none
+}
+
+.form-control:focus .emojis {
+  border: 2px solid red
+}
+
+.comment-area {
+  position: relative
+}
+
+.emojis {
+  position: absolute;
+  list-style: none;
+  padding: 10px;
+  border: 2px solid #eee;
+  border-radius: 36px;
+  display: flex;
+  top: -25px;
+  right: 27px;
+  background-color: #fff
+}
+
+.emojis li {
+  cursor: pointer
+}
+
+.post-btn {
+  height: 50px;
+  font-size: 16px;
+  background: #aba9a9;
+  border: none
+}
+
+.dots {
+  height: 6px;
+  width: 6px;
+  border-radius: 50%;
+  background-color: #eee;
+  margin-top: 2px;
+  margin-left: 5px;
+  margin-right: 5px
+}
+
+.name i {
+  color: red;
+  font-size: 13px
+}
+
+.time-text {
+  font-size: 12px
+}
+
+.top-comment {
+  background-color: #eee;
+  padding: 2px;
+  padding-left: 10px;
+  padding-right: 10px;
+  font-size: 12px;
+  border-radius: 40px
+}
+
+.user-comment-text {
+  font-size: 14px
+}
+
+.fs-13 {
+  font-size: 13px
+}
+
+
+
+
+
+
+.fa-heart-o {
+  color: red;
+  cursor: pointer;
+}
+
+.fa-heart {
+  color: red;
+  cursor: pointer;
+}
+

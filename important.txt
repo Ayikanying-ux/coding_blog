@@ -1,0 +1,12 @@
+THANK YOU FOR WATCHING MY PROJECT.
+
+libraries
+1.django-allauth
+2.pillow
+
+please interact with me on Linkedin for any kind of help related to this project.
+
+https://www.linkedin.com/in/kaluram-kharra/
+
+
+ make a superuser to use admin panel and fill the secret key anf client id of your google and facebook developer account.

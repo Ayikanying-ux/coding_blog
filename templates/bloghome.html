@@ -1,0 +1,84 @@
+{% extends "base.html" %}
+{% block title %}Blog{% endblock %}
+{% block body %}
+
+    <!--================Blog Area =================-->
+    <section class="blog_area section-padding" style="padding-top: 10px;">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mb-5 mb-lg-0">
+                    <div class="blog_left_sidebar">
+
+
+                        {% for post in page_obj %}
+                        <article class="blog_item">
+                            <div class="blog_item_img">
+                                <img class="card-img rounded-0" src="/media/{{post.image}}" alt="">
+                            </div>
+
+                            <div class="blog_details">
+                                <p style="color: rgb(18, 22, 233);">{{post.timeStamp}}</p>
+                                <a class="d-inline-block" href="/blogpost/{{post.slug}}">
+                                    <h2>{{post.name}}</h2>
+                                </a>
+                                <p>{{post.sub_head}}}}</p>
+                                <ul class="blog-info-link">
+                                    <li><i class="fa fa-eye"></i>{{post.total_views}}Views</li>
+                                    <li><i class="fa fa-heart"></i> {{post.like_count}}</li>
+                                </ul>
+                        </article>
+                        {% endfor %}
+
+
+                        <nav class="blog-pagination justify-content-center d-flex">
+                            <ul class="pagination">
+                                {% if page_obj.has_previous %}
+                                <li class="page-item">
+                                    <a href="?page={{ page_obj.previous_page_number }}" class="page-link" aria-label="Previous">
+                                        <i class="ti-angle-left"></i>
+                                    </a>
+                                </li>
+                                {% endif %}
+
+                                {% if page_obj.has_next %}
+                                <li class="page-item">
+                                    <a href="?page={{ page_obj.next_page_number }}" class="page-link" aria-label="Next">
+                                        <i class="ti-angle-right"></i>
+                                    </a>
+                                </li>
+                                {% endif %}
+                            </ul>
+                        </nav>
+
+
+
+                    </div>
+                </div>
+
+                <div class="col-lg-4">
+                    <div class="blog_right_sidebar">
+                        <aside class="single_sidebar_widget search_widget">
+                            <form action="/search/" method="POST">
+                                {% csrf_token %}
+                                <div class="form-group">
+                                    <div class="input-group mb-3">
+                                        <input type="text" id="query" name="query" class="form-control" placeholder='Search Keyword'
+                                            onfocus="this.placeholder = ''"
+                                            onblur="this.placeholder = 'Search Keyword'">
+                                        <div class="input-group-append">
+                                            <button class="btns" type="submit"><i class="ti-search"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </aside>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--================Blog Area =================-->
+
+
+{% endblock %}
